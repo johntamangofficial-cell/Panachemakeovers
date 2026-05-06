@@ -5,6 +5,7 @@ import Services from './components/Services';
 import BookingForm from './components/BookingForm';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
+import Testimonials from './components/Testimonials';
 import { motion, useScroll, useSpring } from 'motion/react';
 
 export default function App() {
@@ -32,21 +33,38 @@ export default function App() {
         <section className="py-24 bg-neutral-50 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-              <div className="space-y-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="space-y-4"
+              >
                 <span className="text-4xl font-serif block text-neutral-900">10+</span>
                 <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-semibold block">Years of Excellence</span>
                 <p className="text-neutral-400 text-sm leading-relaxed max-w-[200px] mx-auto">Providing star-studded beauty & celebrity makeup expertise across the region.</p>
-              </div>
-              <div className="space-y-4">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="space-y-4"
+              >
                 <span className="text-4xl font-serif block text-neutral-900">5k+</span>
                 <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-semibold block">Happy Brides</span>
                 <p className="text-neutral-400 text-sm leading-relaxed max-w-[200px] mx-auto">Our clients' words reflect our dedication to making every day feel like a fairytale.</p>
-              </div>
-              <div className="space-y-4">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="space-y-4"
+              >
                 <span className="text-4xl font-serif block text-neutral-900">Luxury</span>
                 <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-semibold block">Experience</span>
                 <p className="text-neutral-400 text-sm leading-relaxed max-w-[200px] mx-auto">Premium hospitality and spa wellness in a modern, serene environment.</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -65,17 +83,24 @@ export default function App() {
           </div>
           <div className="relative z-10 text-center px-4 max-w-4xl">
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-5xl font-serif text-white mb-8 italic"
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl md:text-5xl font-serif text-white mb-8 italic leading-relaxed"
             >
               "Confidence is the best makeup, <br className="hidden md:block"/> but a little panache never hurts."
             </motion.p>
-            <div className="w-12 h-px bg-neutral-700 mx-auto" />
+            <motion.div 
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              className="w-24 h-px bg-neutral-600 mx-auto" 
+            />
           </div>
         </section>
 
+        <Testimonials />
         <Gallery />
         <BookingForm />
       </main>

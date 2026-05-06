@@ -5,72 +5,75 @@ import { ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-neutral-950">
-      {/* Background Image with Parallax effect simulation */}
+      {/* Background Image with refined Parallax */}
       <div className="absolute inset-0 z-0">
         <motion.div
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.6 }}
-          transition={{ duration: 2, ease: "easeOut" }}
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           className="w-full h-full"
         >
           <img
-            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=2070&auto=format&fit=crop"
-            alt="Makeup Salon"
+            src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=2070&auto=format&fit=crop"
+            alt="Luxury Bridal Transformation"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/40 via-transparent to-neutral-950" />
+        <div className="absolute inset-0 bg-neutral-950/40 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/20 via-transparent to-neutral-950" />
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
-          <span className="text-neutral-400 uppercase tracking-[0.4em] text-sm font-medium mb-6 block">
-            Where Beauty is Above Everything
-          </span>
-          <h1 className="text-5xl md:text-8xl font-serif text-white mb-8 leading-[1.1]">
-            Elevate Your <br />
-            <span className="italic text-neutral-300">Natural Radiance</span>
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: '0.1em' }}
+            animate={{ opacity: 1, letterSpacing: '0.4em' }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="text-neutral-300 uppercase text-xs font-semibold mb-8 block"
+          >
+            NAGPUR'S PREMIER MAKEOVER STUDIO
+          </motion.span>
+          <h1 className="text-6xl md:text-[10rem] font-serif text-white mb-8 leading-[0.9] tracking-tighter">
+            Timeless <br />
+            <span className="italic font-light text-neutral-400">Artistry</span>
           </h1>
-          <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-            Professional makeup artistry, hair styling, and skin wellness designed 
-            to bring out your most confident self.
+          <p className="text-neutral-300 text-lg md:text-xl max-w-xl mx-auto mb-12 leading-relaxed font-light">
+            Crafting bespoke bridal looks and sophisticated styles that 
+            celebrate your unique essence.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <motion.a
               href="#booking"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-neutral-950 px-10 py-4 rounded-full font-medium uppercase tracking-widest flex items-center gap-2 group"
+              whileHover={{ scale: 1.05, backgroundColor: '#f5f5f5' }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white text-neutral-950 px-12 py-5 rounded-full font-medium uppercase tracking-widest flex items-center gap-2 group shadow-2xl"
             >
-              Book Appointment
+              Book Transformation
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-            </motion.a>
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-white border border-white/20 hover:bg-white/10 px-10 py-4 rounded-full font-medium uppercase tracking-widest transition-all"
-            >
-              Our Services
             </motion.a>
           </div>
         </motion.div>
       </div>
 
       {/* Decorative vertical line */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <span className="text-neutral-500 text-[10px] uppercase tracking-[0.3em] vertical-rl rotate-180">Scroll</span>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+      >
+        <span className="text-neutral-500 text-[9px] uppercase tracking-[0.4em] rotate-90 mb-4">Explore</span>
         <motion.div
-          animate={{ height: [0, 40, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-[1px] bg-neutral-600"
+          animate={{ height: [0, 60, 0], y: [0, 20, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-[1px] bg-gradient-to-b from-white/0 via-white/50 to-white/0"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }

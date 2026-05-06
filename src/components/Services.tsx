@@ -4,100 +4,117 @@ import { Scissors, Sparkles, Heart, Star, Fingerprint } from 'lucide-react';
 
 const services = [
   {
-    title: 'Bridal & Party Makeover',
-    description: 'Transformative beauty for your most special moments with expert precision.',
+    title: 'Signature Bridal Transformation',
+    description: 'Bespoke bridal artistry including HD and Airbrush techniques tailored for your big day.',
     icon: <Sparkles className="text-neutral-400" />,
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=2071&auto=format&fit=crop',
-    tags: ['Bridal', 'Luxury', 'Artistry']
+    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1974&auto=format&fit=crop',
+    tags: ['Bridal', 'High-Def', 'Luxury']
   },
   {
-    title: 'Hair Styling & Treatments',
-    description: 'Hair that makes heads turn, from clinical treatments to artistic styling.',
+    title: 'Avant-Garde Hair Styling',
+    description: 'From clinical scalp treatments to celebrity-style extensions and avant-garde styling.',
     icon: <Scissors className="text-neutral-400" />,
-    image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2069&auto=format&fit=crop',
-    tags: ['Cut', 'Color', 'Styling']
+    image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1974&auto=format&fit=crop',
+    tags: ['Styling', 'Color', 'Extensions']
   },
   {
-    title: 'Nail Art & Extension',
-    description: 'Nails sculpted to perfection with artistic designs and premium finishes.',
+    title: 'Sculpted Nail Artistry',
+    description: 'Precision nail sculpting and artistic gel designs using premium international brands.',
     icon: <Heart className="text-neutral-400" />,
-    image: 'https://images.unsplash.com/photo-1604654894610-df490998710c?q=80&w=1974&auto=format&fit=crop',
-    tags: ['Extensions', 'Gel Art', 'Spa']
+    image: 'https://images.unsplash.com/photo-1600057081960-f1c97aee489c?q=80&w=1974&auto=format&fit=crop',
+    tags: ['3D Art', 'Nail Spa', 'Sculpting']
   },
   {
-    title: 'Beauty & Skin Wellness',
-    description: 'Revitalize your skin with our professional spa treatments and facials.',
+    title: 'Luminous Skin Rituals',
+    description: 'Advanced facials and clinical skin wellness rituals to achieve the perfect bridal glow.',
     icon: <Star className="text-neutral-400" />,
-    image: 'https://images.unsplash.com/photo-1570172619235-ef519471475c?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Glow', 'Hydrate', 'Refresh']
+    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop',
+    tags: ['Rituals', 'Detox', 'Glow']
   },
   {
-    title: 'Eyelashes Extensions',
-    description: 'Eyes framed in forever beauty with our high-end lash extension services.',
+    title: 'Lash & Brow Design',
+    description: 'Enhance your gaze with semi-permanent volume lashes and expert brow architecture.',
     icon: <Fingerprint className="text-neutral-400" />,
-    image: 'https://images.unsplash.com/photo-1582236329469-807d545d8b7b?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Volume', 'Classic', 'Natural']
+    image: 'https://images.unsplash.com/photo-1510590333219-d7d0002181ac?q=80&w=2070&auto=format&fit=crop',
+    tags: ['Volume', 'Microblading', 'Design']
   }
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white px-6">
+    <section id="services" className="py-32 bg-white px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <span className="text-neutral-500 uppercase tracking-widest text-xs font-semibold mb-4 block">Our Specialties</span>
-            <h2 className="text-4xl md:text-6xl font-serif text-neutral-950 leading-tight">
-              Curated Services For <br />
-              <span className="italic text-neutral-600">The Modern Muse</span>
-            </h2>
-          </div>
-          <div className="hidden md:block">
-            <p className="text-neutral-500 max-w-sm text-lg leading-relaxed">
-              We offer a full spectrum of beauty services designed to pamper and perfect every detail.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-neutral-400 uppercase tracking-[0.3em] text-[10px] font-bold mb-6 block"
+            >
+              The Signature Experience
+            </motion.span>
+            <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer"
+              className="text-5xl md:text-7xl font-serif text-neutral-950 leading-[1.1] tracking-tight"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl mb-6">
-                <img
+              Curated Services For <br />
+              <span className="italic text-neutral-500 font-light underline decoration-neutral-200 underline-offset-8">The Modern Muse</span>
+            </motion.h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10% 0px' }}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[40px] mb-8 shadow-xl">
+                <motion.img
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="flex flex-wrap gap-2">
-                    {service.tags.map(tag => (
-                      <span key={tag} className="bg-white/10 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-white/20">
-                        {tag}
-                      </span>
-                    ))}
+                <div className="absolute inset-0 bg-neutral-950/10 group-hover:bg-neutral-950/30 transition-colors duration-700" />
+                <div className="absolute top-8 right-8">
+                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white">
+                    {service.icon}
                   </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-neutral-50 rounded-2xl group-hover:bg-neutral-900 group-hover:text-white transition-colors duration-500">
-                  {service.icon}
+              
+              <div className="px-2">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {service.tags.map(tag => (
+                    <span key={tag} className="text-[9px] uppercase tracking-[0.2em] font-bold text-neutral-400 border border-neutral-100 px-3 py-1.5 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="text-xl font-serif text-neutral-950 mb-2 group-hover:text-neutral-700 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-neutral-500 leading-relaxed text-sm">
-                    {service.description}
-                  </p>
+                <h3 className="text-2xl font-serif text-neutral-900 mb-4 tracking-tight group-hover:text-neutral-500 transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-neutral-500 leading-relaxed font-light text-base">
+                  {service.description}
+                </p>
+                <div className="mt-8 overflow-hidden h-[1px] w-full bg-neutral-100">
+                  <motion.div 
+                    initial={{ x: '-100%' }}
+                    whileInView={{ x: '0%' }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: index * 0.2 }}
+                    className="h-full w-full bg-neutral-900"
+                  />
                 </div>
               </div>
             </motion.div>
